@@ -17,8 +17,8 @@ export default {
   data(){
     return{
       todos:[
-        {id:1, title: 'Learn JavaScript'},
-        {id:2, title: 'Learn Vue.js'}
+        {id:1, title: 'Learn JavaScript', isDone: false},
+        {id:2, title: 'Learn Vue.js', isDone: false}
       ]
     }
   },
@@ -29,7 +29,8 @@ export default {
       } else {
         todo.id = 1;
         }
-      this.todos.push(todo) 
+      todo.isDone = false
+    this.todos.push(todo) 
 
     },
     removeItem(todo){
