@@ -2,7 +2,7 @@
   <div class="main container my-3">
     <h1>Todo Application</h1>
     <todo-form @addtodo="addTodo"></todo-form>
-    <todo-list :todoItems="todos"></todo-list>
+    <todo-list :todoItems="todos" @delete="removeItem"></todo-list>
   </div>
 </template>
 
@@ -17,14 +17,23 @@ export default {
   data(){
     return{
       todos:[
-        { title: 'Learn Vue.js'},
-        {title: 'Learn Node.js'}
+        {id:1, title: 'Learn JavaScript'},
+        {id:2, title: 'Learn Vue.js'}
       ]
     }
   },
   methods:{
     addTodo(todo){
-      this.todos.push(todo)
+      if (this.todos.length > 0) {
+      todo.id = (this.todos[this.todos.length - 1].id) + 1
+      } else {
+        todo.id = 1;
+        }
+      this.todos.push(todo) 
+
+    },
+    removeItem(todo){
+      this.todos.splice(this.todos.indexOf(todo), 1);
     }
   }
 };

@@ -13,13 +13,13 @@
   v-model="todo.title"
   @keyup.enter="addTodoitem"
   @input="isEmpty=false">
-  
   </div>
-  <div class="col-2">
+  <div class="col-2 d-flex justify-content-end">
   <button type="button" @click="addTodoitem" class="btn btn-primary">Add Todo</button>
   </div>
-  
 </div>
+
+
 </template>
 
 <script>
@@ -52,5 +52,4 @@ export default {
 </script>
 
 <style>
-
 </style>
