@@ -1,5 +1,5 @@
 <template>
-  <div class="main container">
+  <div class="main container my-3">
     <h1>Todo Application</h1>
     <todo-form @addtodo="addTodo"></todo-form>
     <todo-list :todoItems="todos"></todo-list>
