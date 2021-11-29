@@ -1,38 +1,31 @@
 <template>
-  <div class="card d-flex flex-row align-items-center mb-2" v-for="todo in todoItems" :key="todo.id">
-  <input class="form-check-input mx-3 mb-1" type="checkbox" @change="checkDone(todo)">
-  <div class="card-body">
-   <span class="card-title" :class="{doneItem:todo.isDone}" :data-status="todo.isDone">{{todo.title}}</span>
-  </div>
-  <button type="button" @click="$emit('delete', todo)" class="btn-close bg-danger mx-3" aria-label="Close"></button>
+<div>
+<single-todo @delete="removeItem" @tick="checkDone(todo)" :todo="todo" v-for="todo in todoItems" :key="todo.id"></single-todo>
 </div>
 </template>
 
 <script>
+import SingleTodo from './SingleTodo.vue';
 export default {
+  components: { SingleTodo },
     props:{
         todoItems:{
             type: Array,
             required: true
+        },
+        completedTodos:{
+            type: Array
         }
-    },
+    }, 
     methods:{
-        checkDone(post){
-           if (post.isDone === false) {
-           post.isDone = true;
-           } else {
-           post.isDone = false;
-           }
+        removeItem(todo){
+      this.todoItems.splice(this.todoItems.indexOf(todo), 1);
+    },
+     checkDone(post){
+         post.isDone = true;
+         this.completedTodos.push(post);
+         this.todoItems.splice(this.todoItems.indexOf(post), 1)
         }
-    }  
+    }
 }
 </script>
-
-<style>
-.doneItem{
-    text-decoration: line-through;
-}
-.form-check-input{
-    cursor: pointer;
-}
-</style>

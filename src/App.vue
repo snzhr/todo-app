@@ -2,24 +2,35 @@
   <div class="main container my-3">
     <h1>Todo Application Vue 3</h1>
     <todo-form @addtodo="addTodo"></todo-form>
-    <todo-list :todoItems="todos" @delete="removeItem"></todo-list>
+    <div class="row">
+        <div class="col-6">
+          <h4>Todo tasks</h4>
+    <todo-list :todoItems="todos" :completedTodos="doneTodos"></todo-list>
+        </div>
+        <div class="col-6">
+          <h4>Completed tasks</h4>
+          <done-list :doneItems="doneTodos" :uncompletedItems="todos"></done-list>
+        </div>
+    </div>
   </div>
 </template>
 
 <script>
 import TodoForm from "./components/TodoForm.vue";
 import TodoList from './components/TodoList.vue'
+import DoneList from "./components/DoneList.vue"
 export default {
   name: "App",
   components: {
-    TodoForm, TodoList
+    TodoForm, TodoList, DoneList
   },
   data(){
     return{
       todos:[
         {id:1, title: 'Learn JavaScript', isDone: false},
         {id:2, title: 'Learn Vue.js', isDone: false}
-      ]
+      ],
+      doneTodos:[{id:1, title: 'Learn HTML', isDone: true}]
     }
   },
   methods:{
