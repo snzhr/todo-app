@@ -3,11 +3,11 @@
     <h1>Todo Application Vue 3</h1>
     <todo-form @addtodo="addTodo"></todo-form>
     <div class="row">
-        <div class="col-6">
+        <div class="col-md-6">
           <h4>Todo tasks</h4>
     <todo-list :todoItems="todos" :completedTodos="doneTodos"></todo-list>
         </div>
-        <div class="col-6">
+        <div class="col-md-6">
           <h4>Completed tasks</h4>
           <done-list :doneItems="doneTodos" :uncompletedItems="todos"></done-list>
         </div>
