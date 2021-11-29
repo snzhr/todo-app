@@ -4,7 +4,7 @@
   <div class="card-body">
    <span class="card-title" :class="{doneItem:todo.isDone}" :data-status="todo.isDone">{{todo.title}}</span>
   </div>
-  <button type="button" @click="$emit('delete', todo)" class="btn-close bg-danger rounded mx-3" aria-label="Close"></button>
+  <button type="button" @click="$emit('delete', todo)" class="btn-close bg-danger mx-3" aria-label="Close"></button>
 </div>
 </template>
 
