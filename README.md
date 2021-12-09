@@ -1,25 +1,7 @@
-# todo-app
+# Simple todo-app in Vue.js
 
-simple todo-app in Vue.js
+#### Frameworks used
 
-## Project setup
+- Bootstrap 5
 
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-
-```
-npm run build
-```
-
-### Customize configuration
-
-See [Configuration Reference](https://cli.vuejs.org/config/).
+- Vue 3
